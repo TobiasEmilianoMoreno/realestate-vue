@@ -44,7 +44,13 @@ const fetchProperties = async () => {
     isLoading.value = true
     error.value = null
     try {
-        const { data } = await api.get<TopProperty[]>('/buildings/overview')
+        console.log(localStorage.getItem('token'));
+        
+        const { data } = await api.get<TopProperty[]>('/buildings/overview', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
         properties.value = data
     } catch{
         error.value = 'No se pudieron cargar las propiedades.'

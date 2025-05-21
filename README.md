@@ -26,7 +26,7 @@ Inmobiliaria Logo es una plataforma digital moderna y elegante diseñada para tr
 
 <h3>
 
-Accede a la demo del proyecto: [Inmobiliaria Logo Demo](https://inmobiliaria-logo-tobias-moreno-techf.netlify.app/)
+Accede a la demo del proyecto: [Inmobiliaria Logo Demo](https://real-estate-vue-tobias-moreno.netlify.app/)
 
 </h3>
 

@@ -47,7 +47,11 @@ async function loadSalesData(): Promise<SaleItem[]> {
     isLoading.value = true
     error.value = null
     try {
-        const response = await api.get<SaleItem[]>(`/sales/${selectedPeriod.value.toLowerCase()}`)
+        const response = await api.get<SaleItem[]>(`/sales/${selectedPeriod.value.toLowerCase()}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+        })
         return response.data
     } catch {
         error.value = 'No se pudieron cargar los datos de ventas.'

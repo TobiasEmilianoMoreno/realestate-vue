@@ -34,11 +34,15 @@ const revenueStats = ref<RevenueStats[]>([])
 const isLoading = ref(false)
 const error = ref<string | null>(null)
 
-async function loadRevenueStats(): Promise<void>	 {
+async function loadRevenueStats(): Promise<void> {
     isLoading.value = true
     error.value = null
     try {
+        
         const response = await api.get<RevenueStats[]>(`/revenues`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
             params: { viewType: viewType.value }
         })
         revenueStats.value = response.data

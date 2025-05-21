@@ -31,7 +31,11 @@ async function getTransactions() {
     isLoading.value = true
     error.value = null
     try {
-        const response = await api.get<ResponseTransactionDto[]>('transactions')
+        const response = await api.get<ResponseTransactionDto[]>('transactions', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
         transactions.value = response.data.map(transaction => ({
         ...transaction,
         date: formatDate(transaction.date),
